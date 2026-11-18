@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+  ::selection {
+    @apply bg-gold/30;
+  }
+}
+
+@layer components {
+  .container-lux {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-gold;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-gold;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-ink shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-goldSoft focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 px-7 py-3.5 text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:border-gold hover:bg-gold/10;
+  }
+  .card-lux {
+    @apply rounded-2xl border border-sand bg-white shadow-card;
+  }
+  .field {
+    @apply w-full rounded-xl border border-sand bg-cream/60 px-4 py-3 text-sm text-ink placeholder:text-ink/35 transition-colors focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/25;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-bold uppercase tracking-widest text-ink/60;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
