@@ -2,6 +2,8 @@
 import { clinic } from "../data/clinic.js";
 import { Icon, Reveal } from "./ui.jsx";
 
+const clinicImage = `${import.meta.env.BASE_URL}images/motion_well_inside.png`;
+
 export default function Hero() {
   return (
     <section
@@ -10,7 +12,7 @@ export default function Hero() {
     >
       {/* Hero Background Image */}
       <img
-        src="/images/motion_well_inside.png"
+        src={clinicImage}
         alt="Motionwell Physiotherapy Clinic"
         className="absolute inset-0 h-full w-full object-cover object-center opacity-25"
         loading="eager"
@@ -99,7 +101,7 @@ export default function Hero() {
               {/* Full Image - No Cropping */}
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-soft">
                 <img
-                  src="/images/motion_well_inside.png"
+                  src={clinicImage}
                   alt="Inside Motionwell Clinic"
                   className="block h-auto max-h-[600px] w-full object-contain"
                   loading="eager"

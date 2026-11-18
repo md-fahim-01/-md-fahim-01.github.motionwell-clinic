@@ -2,6 +2,8 @@
 import { conditions } from "../data/clinic.js";
 import { Icon, Reveal } from "./ui.jsx";
 
+const imagesPath = `${import.meta.env.BASE_URL}images/`;
+
 const points = [
   "Personalized, evidence-based treatment plans",
   "Modern techniques with a compassionate approach",
@@ -18,7 +20,7 @@ export default function About() {
 
             {/* Main Clinic Interior Image */}
             <img
-              src="/images/inside_img.png"
+              src={`${imagesPath}inside_img.png`}
               alt="Motionwell Physiotherapy Clinic Interior"
               className="aspect-[4/3] w-full rounded-3xl object-cover shadow-card"
               loading="lazy"
@@ -27,7 +29,7 @@ export default function About() {
 
             {/* Rehabilitation Image */}
             <img
-              src="/images/inside_img.png"
+              src={`${imagesPath}inside_img.png`}
               alt="Rehabilitation facilities at Motionwell"
               className="absolute -bottom-10 -right-4 hidden w-44 rounded-2xl border-4 border-cream object-cover shadow-soft sm:block lg:w-52"
               loading="lazy"

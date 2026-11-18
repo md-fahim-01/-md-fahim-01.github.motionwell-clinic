@@ -2,6 +2,8 @@
 import { clinic } from "../data/clinic.js";
 import { Icon } from "./ui.jsx";
 
+const logoSrc = `${import.meta.env.BASE_URL}images/motion_wll_logo.png`;
+
 export default function Footer() {
   return (
     <footer className="bg-ink pb-24 pt-16 text-white/70">
@@ -11,7 +13,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <img
-              src="/images/motion_wll_logo.png"
+              src={logoSrc}
               alt="Motionwell Clinic Logo"
               className="h-14 w-14 rounded-full bg-white p-0.5 object-cover ring-2 ring-white/60 shadow-soft"
               loading="lazy"
@@ -64,7 +66,6 @@ export default function Footer() {
           </p>
 
           <ul className="mt-4 space-y-3 text-sm">
-
             <li className="flex items-start gap-3">
               <Icon
                 name="pin"
@@ -98,7 +99,6 @@ export default function Footer() {
                 {clinic.email}
               </a>
             </li>
-
           </ul>
         </div>
       </div>
@@ -130,7 +130,6 @@ export default function Footer() {
             +91 62064 85367
           </a>
         </div>
-
       </div>
     </footer>
   );

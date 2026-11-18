@@ -1,26 +1,29 @@
+
 /* ============================================================
    MOTIONWELL CLINIC — EDIT EVERYTHING HERE
-   Yahan saari clinic information ek jagah hai.
-   Images: /public/images/ folder me rakhein — same naam se
-   replace karein, website automatically update ho jayegi.
+   Clinic information is managed from this file.
+   Images are stored inside public/images/.
    ============================================================ */
 
 export const clinic = {
   name: "Motionwell Physiotherapy, Rehabilitation & Multispeciality Clinic",
   shortName: "Motionwell",
   tagline: "Move Better. Live Better.",
+
   phone: "+91 96254 42586",
   phoneDial: "+919625442586",
   whatsapp: "919625442586",
+
   email: "wellmotion586@gmail.com",
   fee: "₹300",
+
   address: {
     line1: "R12, Upper Ground Floor, Near Hari Masjid,",
     line2: "Front of Taj Super Store, Batla House,",
     line3: "Jamia Nagar, New Delhi – 110025",
-    full:
-      "R12, Upper Ground Floor, Near Hari Masjid, Front of Taj Super Store, Batla House, Jamia Nagar, New Delhi – 110025",
+    full: "R12, Upper Ground Floor, Near Hari Masjid, Front of Taj Super Store, Batla House, Jamia Nagar, New Delhi – 110025",
   },
+
   mapsQuery:
     "Motionwell Physiotherapy, Batla House, Jamia Nagar, New Delhi 110025",
 };
@@ -30,20 +33,23 @@ export const doctor = {
   title: "Physiotherapist",
   qualification: "BPT, MPT",
   experience: "5+ Years",
-  photo: "/images/doctor.jpg",
+
+  photo: `${import.meta.env.BASE_URL}images/lady_dr.jpeg`,
+
   roles: [
     "Ex-Resident — Oncoplus Hospital, Defence Colony",
     "Ex-Resident — Neo Genesis Hospital, Janakpuri",
   ],
+
   philosophy:
-    "Personalized, evidence-based care focused on lasting pain relief, restored mobility and a confident return to your everyday life.",
+    "Personalized, evidence-based care focused on pain relief, restored mobility and a confident return to your everyday life.",
 };
 
 export const services = [
   {
     icon: "spine",
     name: "Physiotherapy",
-    desc: "Advanced hands-on therapy and guided exercise programs for complete physical recovery.",
+    desc: "Advanced hands-on therapy and guided exercise programs for physical recovery.",
   },
   {
     icon: "heart",
@@ -58,7 +64,7 @@ export const services = [
   {
     icon: "stethoscope",
     name: "General Physician Consultation",
-    desc: "Expert medical consultation and guidance for everyday health concerns.",
+    desc: "Medical consultation and guidance for everyday health concerns.",
   },
 ];
 
@@ -80,10 +86,26 @@ export const timings = [
 ];
 
 export const steps = [
-  { num: "01", title: "Book Appointment", text: "Reserve your slot through WhatsApp or a phone call — all days open." },
-  { num: "02", title: "Detailed Assessment", text: "Medical history, pain areas and mobility are carefully evaluated." },
-  { num: "03", title: "Personalized Plan", text: "A customized treatment plan is designed for your condition and lifestyle." },
-  { num: "04", title: "Therapy & Recovery", text: "Hands-on therapy, guided exercise and progress monitoring till full recovery." },
+  {
+    num: "01",
+    title: "Book Appointment",
+    text: "Reserve your slot through WhatsApp or a phone call — all days open.",
+  },
+  {
+    num: "02",
+    title: "Detailed Assessment",
+    text: "Medical history, pain areas and mobility are carefully evaluated.",
+  },
+  {
+    num: "03",
+    title: "Personalized Plan",
+    text: "A customized treatment plan is designed for your condition and lifestyle.",
+  },
+  {
+    num: "04",
+    title: "Therapy & Recovery",
+    text: "Hands-on therapy, guided exercise and progress monitoring throughout recovery.",
+  },
 ];
 
 export const testimonials = [
@@ -119,6 +141,6 @@ export const faqs = [
   },
   {
     q: "How is my appointment confirmed?",
-    a: "After you submit the form, your details reach our WhatsApp. The clinic then confirms your appointment via WhatsApp or a phone call.",
+    a: "After you submit the form, your details open in WhatsApp. The clinic then confirms your appointment via WhatsApp or a phone call.",
   },
 ];

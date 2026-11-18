@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { clinic } from "../data/clinic.js";
 import { Icon } from "./ui.jsx";
 
+const logoSrc = `${import.meta.env.BASE_URL}images/motion_wll_logo.png`;
+
 const links = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
@@ -41,7 +43,7 @@ export default function Navbar() {
           aria-label="Motionwell home"
         >
           <img
-            src="/images/motion_wll_logo.png"
+            src={logoSrc}
             alt="Motionwell Clinic Logo"
             className="h-14 w-14 rounded-full bg-white p-0.5 object-cover ring-2 ring-white/70 shadow-soft sm:h-16 sm:w-16"
             loading="eager"
@@ -89,10 +91,12 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           className="rounded-lg p-2 text-white lg:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          onClick={() => setOpen((previous) => !previous)}
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           <svg
             viewBox="0 0 24 24"
@@ -101,6 +105,7 @@ export default function Navbar() {
             stroke="currentColor"
             strokeWidth="1.8"
             strokeLinecap="round"
+            aria-hidden="true"
           >
             {open ? (
               <path d="M6 6l12 12M18 6L6 18" />
@@ -114,6 +119,7 @@ export default function Navbar() {
       {/* Mobile Navigation */}
       {open && (
         <nav
+          id="mobile-navigation"
           className="border-t border-white/10 bg-pineDeep/98 px-6 pb-6 pt-2 backdrop-blur lg:hidden"
           aria-label="Mobile"
         >
