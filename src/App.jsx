@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Doctor from "./components/Doctor.jsx";
+import Gallery from "./components/Gallery.jsx";
 import Services from "./components/Services.jsx";
 import FeesTimings from "./components/FeesTimings.jsx";
 import Testimonials from "./components/Testimonials.jsx";
@@ -20,6 +21,7 @@ export default function App() {
         <Hero />
         <About />
         <Doctor />
+        <Gallery />
         <Services />
         <FeesTimings />
         <Testimonials />
