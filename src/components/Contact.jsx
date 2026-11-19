@@ -61,7 +61,7 @@ export default function Contact() {
               {contactItems.map((item) => {
                 const content = (
                   <>
-                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-pine text-gold">
+                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-pine text-[#1CAF87]">
                       <Icon name={item.icon} className="h-5 w-5" />
                     </span>
 

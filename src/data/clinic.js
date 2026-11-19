@@ -15,7 +15,6 @@ export const clinic = {
   whatsapp: "919625442586",
 
   email: "wellmotion586@gmail.com",
-  fee: "₹300",
 
   address: {
     line1: "R12, Upper Ground Floor, Near Hari Masjid,",
@@ -132,8 +131,8 @@ export const faqs = [
     a: "Walk-ins are welcome, but booking on WhatsApp or by phone is recommended so your slot is reserved and waiting time is minimal.",
   },
   {
-    q: "What are the consultation fees?",
-    a: "Consultation fees are ₹300 for all services, including physiotherapy and general physician consultation.",
+    q: "What makes Motionwell Clinic different?",
+    a: "We focus on personalized physiotherapy care, patient comfort, and rehabilitation plans designed around individual needs.",
   },
   {
     q: "Is the clinic open on Sundays?",

@@ -12,7 +12,7 @@ const points = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 sm:py-28">
+    <section id="about" className="bg-cream py-20 sm:py-28">
       <div className="container-lux grid items-center gap-14 lg:grid-cols-2">
 
         <Reveal>
@@ -37,11 +37,12 @@ export default function About() {
             />
 
             {/* Experience Badge */}
-            <div className="absolute -left-4 -top-4 hidden rounded-2xl bg-pine px-5 py-4 text-white shadow-soft sm:block">
-              <p className="font-display text-2xl font-semibold text-gold">
+            <div className="absolute -left-4 -top-4 hidden rounded-2xl bg-[#1CAF87] px-5 py-4 text-white shadow-soft sm:block">
+              <p className="font-display text-2xl font-semibold text-white">
                 5+
               </p>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-white/70">
+
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-white/90">
                 Years of Expertise
               </p>
             </div>
@@ -50,12 +51,17 @@ export default function About() {
         </Reveal>
 
         <Reveal delay={120}>
-          <p className="eyebrow">About Motionwell</p>
+          {/* Section Label */}
+          <p className="eyebrow">
+            About Motionwell
+          </p>
 
+          {/* Heading */}
           <h2 className="mt-4 font-display text-3xl font-medium leading-snug text-ink sm:text-4xl">
             Dedicated to Healing, Mobility & Long-Term Recovery
           </h2>
 
+          {/* Description */}
           <p className="mt-6 leading-relaxed text-ink/70">
             Motionwell Physiotherapy, Rehabilitation & Multispeciality Clinic is
             committed to delivering personalized, evidence-based care focused on
@@ -64,12 +70,14 @@ export default function About() {
             their unique condition and lifestyle.
           </p>
 
+          {/* Clinic Highlights */}
           <ul className="mt-8 space-y-4">
             {points.map((p) => (
               <li key={p} className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-pine/10 text-pine">
+                <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-[#1CAF87]/10 text-[#1CAF87]">
                   <Icon name="check" className="h-3.5 w-3.5" />
                 </span>
+
                 <span className="text-sm font-medium text-ink/80">
                   {p}
                 </span>
@@ -77,6 +85,7 @@ export default function About() {
             ))}
           </ul>
 
+          {/* Conditions We Treat */}
           <div className="mt-10">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-ink/45">
               Conditions We Treat
@@ -86,7 +95,7 @@ export default function About() {
               {conditions.map((c) => (
                 <span
                   key={c}
-                  className="rounded-full border border-sand bg-white px-4 py-2 text-xs font-semibold text-ink/70 shadow-sm"
+                  className="rounded-full border border-sand bg-white px-4 py-2 text-xs font-semibold text-ink/70 shadow-sm transition-all hover:border-[#1CAF87] hover:text-[#1CAF87]"
                 >
                   {c}
                 </span>

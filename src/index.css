@@ -1,46 +1,68 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* =================================
+   BASE STYLES
+================================= */
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-cream text-ink font-body antialiased;
   }
+
   ::selection {
     @apply bg-gold/30;
   }
 }
 
+/* =================================
+   COMMON COMPONENTS
+================================= */
+
 @layer components {
   .container-lux {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
+
   .eyebrow {
     @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-gold;
   }
+
   .eyebrow::before {
     content: "";
     @apply block h-px w-8 bg-gold;
   }
+
   .btn-gold {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-widest text-ink shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-goldSoft focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
   }
+
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 px-7 py-3.5 text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:border-gold hover:bg-gold/10;
   }
+
   .card-lux {
     @apply rounded-2xl border border-sand bg-white shadow-card;
   }
+
   .field {
     @apply w-full rounded-xl border border-sand bg-cream/60 px-4 py-3 text-sm text-ink placeholder:text-ink/35 transition-colors focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/25;
   }
+
   .label {
     @apply mb-1.5 block text-xs font-bold uppercase tracking-widest text-ink/60;
   }
 }
+
+/* =================================
+   REVEAL ANIMATION
+================================= */
 
 @layer utilities {
   .reveal {
@@ -48,8 +70,282 @@
     transform: translateY(24px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
+
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* =================================
+   MOTIONWELL DOCTORS SECTION
+================================= */
+
+.doctors-section {
+  width: 100%;
+  padding: 90px 0 85px;
+  overflow: hidden;
+  background: #1caf87;
+  color: #ffffff;
+}
+
+.doctors-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Heading */
+
+.doctors-heading {
+  max-width: 760px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.doctors-eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: rgba(255,255,255,0.85);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.doctors-heading h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 750;
+  line-height: 1.15;
+}
+
+.doctors-heading h2 span {
+  color: #e5f9f0;
+}
+
+.doctors-heading p {
+  max-width: 650px;
+  margin: 20px auto 0;
+  color: rgba(255,255,255,0.9);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =================================
+   HORIZONTAL DOCTOR SLIDER
+================================= */
+
+.doctor-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0 24px;
+
+  /* Fade edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+}
+
+.doctor-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: flex-start;
+  animation: motionwellDoctors 35s linear infinite;
+  will-change: transform;
+}
+
+.doctor-marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  gap: 32px;
+  padding-right: 32px;
+}
+
+/* =================================
+   DOCTOR PROFILE
+================================= */
+
+.doctor-profile {
+  flex: 0 0 240px;
+  width: 240px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+/* Circular image */
+
+.doctor-avatar {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 26px;
+  overflow: hidden;
+  border: 7px solid #ffffff;
+  border-radius: 50%;
+  background: #e9f3ef;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.doctor-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Doctor details */
+
+.doctor-profile h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+.doctor-qualification {
+  margin-bottom: 10px;
+  color: #e7fff4;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.doctor-title {
+  margin-bottom: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.doctor-experience {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =================================
+   CONTINUOUS ANIMATION
+================================= */
+
+@keyframes motionwellDoctors {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =================================
+   APPOINTMENT BUTTON
+================================= */
+
+.doctors-footer {
+  margin-top: 45px;
+  text-align: center;
+}
+
+.doctors-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  background: #ffffff;
+  color: #087c5d;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.doctors-button:hover {
+  background: #e5f9f0;
+  transform: translateY(-3px);
+}
+
+/* =================================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 640px) {
+  .doctors-section {
+    padding: 65px 0;
+  }
+
+  .doctors-container {
+    padding: 0 18px;
+  }
+
+  .doctors-heading {
+    margin-bottom: 40px;
+  }
+
+  .doctors-heading p {
+    font-size: 14px;
+  }
+
+  .doctor-profile {
+    flex-basis: 220px;
+    width: 220px;
+  }
+
+  .doctor-marquee-group {
+    gap: 20px;
+    padding-right: 20px;
+  }
+
+  .doctor-avatar {
+    width: 160px;
+    height: 160px;
+    border-width: 6px;
+  }
+
+  .doctor-profile h3 {
+    font-size: 18px;
+  }
+
+  .doctor-marquee-track {
+    animation-duration: 28s;
+  }
+
+  .doctor-marquee {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
   }
 }

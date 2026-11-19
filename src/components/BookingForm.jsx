@@ -147,31 +147,37 @@ export default function BookingForm() {
   return (
     <section
       id="book"
-      className="relative overflow-hidden bg-pineDeep py-20 text-white sm:py-28"
+      className="relative overflow-hidden bg-[#1CAF87] py-20 text-white sm:py-28"
     >
-      <div className="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
+      {/* Decorative Background */}
+      <div className="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
 
       <div className="container-lux relative grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
-        <Reveal>
-          <p className="eyebrow">Book Appointment</p>
 
-          <h2 className="mt-4 font-display text-3xl font-medium sm:text-4xl">
+        {/* Booking Information */}
+        <Reveal>
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/85">
+            Book Appointment
+          </p>
+
+          <h2 className="mt-4 font-display text-3xl font-medium text-white sm:text-4xl">
             Reserve Your Appointment Today
           </h2>
 
-          <p className="mt-5 max-w-md leading-relaxed text-white/70">
+          <p className="mt-5 max-w-md leading-relaxed text-white/90">
             Fill the form and your details will open in WhatsApp. We confirm
             your slot via WhatsApp or a phone call. All days open.
           </p>
 
+          {/* Booking Steps */}
           <ul className="mt-8 space-y-4 text-sm">
             {[
               "Step 1 — Submit the appointment form",
               "Step 2 — Details open in clinic WhatsApp",
               "Step 3 — Confirmation on WhatsApp / phone call",
             ].map((s) => (
-              <li key={s} className="flex items-center gap-3 text-white/80">
-                <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-gold/15 text-gold">
+              <li key={s} className="flex items-center gap-3 text-white">
+                <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-white/20 text-white">
                   <Icon name="check" className="h-3.5 w-3.5" />
                 </span>
                 {s}
@@ -179,8 +185,9 @@ export default function BookingForm() {
             ))}
           </ul>
 
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/50">
+          {/* Booking Slots */}
+          <div className="mt-10 rounded-2xl border border-white/20 bg-white/10 p-6">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/80">
               Booking Slots
             </p>
 
@@ -189,19 +196,26 @@ export default function BookingForm() {
                 .filter((t) => t.label !== "On-Call")
                 .map((t) => (
                   <div key={t.label}>
-                    <p className="text-sm font-bold text-gold">{t.label}</p>
-                    <p className="mt-1 text-sm text-white/75">{t.hours}</p>
+                    <p className="text-sm font-bold text-white">
+                      {t.label}
+                    </p>
+                    <p className="mt-1 text-sm text-white/90">
+                      {t.hours}
+                    </p>
                   </div>
                 ))}
             </div>
           </div>
         </Reveal>
 
+        {/* Appointment Form */}
         <Reveal delay={120}>
           <div className="rounded-3xl bg-white p-7 text-ink shadow-soft sm:p-9">
+
+            {/* Success Message */}
             {sent && (
               <div
-                className="mb-6 rounded-xl border border-pine/20 bg-pine/5 p-4 text-sm font-medium text-pine"
+                className="mb-6 rounded-xl border border-[#1CAF87]/20 bg-[#1CAF87]/10 p-4 text-sm font-medium text-[#0C2B27]"
                 role="status"
               >
                 WhatsApp should open with your details. Please press{" "}
@@ -209,6 +223,7 @@ export default function BookingForm() {
               </div>
             )}
 
+            {/* Form Error */}
             {errors.form && (
               <p className="mb-4 text-sm font-medium text-red-600" role="alert">
                 {errors.form}
@@ -220,6 +235,8 @@ export default function BookingForm() {
               noValidate
               className="grid gap-5 sm:grid-cols-2"
             >
+
+              {/* Patient Name */}
               <div>
                 <label className="label" htmlFor="bf-name">
                   Patient Name *
@@ -242,6 +259,7 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Mobile Number */}
               <div>
                 <label className="label" htmlFor="bf-phone">
                   Mobile Number *
@@ -265,6 +283,7 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Age */}
               <div>
                 <label className="label" htmlFor="bf-age">
                   Age *
@@ -289,6 +308,7 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Gender */}
               <div>
                 <label className="label" htmlFor="bf-gender">
                   Gender *
@@ -314,6 +334,7 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Service */}
               <div className="sm:col-span-2">
                 <label className="label" htmlFor="bf-service">
                   Select Service *
@@ -339,6 +360,7 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Preferred Date */}
               <div>
                 <label className="label" htmlFor="bf-date">
                   Preferred Date *
@@ -359,6 +381,7 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Preferred Time */}
               <div>
                 <label className="label" htmlFor="bf-time">
                   Preferred Time *
@@ -384,6 +407,7 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Symptoms */}
               <div className="sm:col-span-2">
                 <label className="label" htmlFor="bf-symptoms">
                   Problem / Symptoms (Optional)
@@ -408,6 +432,7 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Consent */}
               <div className="sm:col-span-2">
                 <label className="flex cursor-pointer items-start gap-3 text-sm text-ink/70">
                   <input
@@ -415,7 +440,7 @@ export default function BookingForm() {
                     name="consent"
                     checked={form.consent}
                     onChange={updateField("consent")}
-                    className="mt-1 h-4 w-4 flex-none accent-[#174D3A]"
+                    className="mt-1 h-4 w-4 flex-none accent-[#1CAF87]"
                   />
                   <span>
                     I agree to share my appointment details and the information
@@ -430,8 +455,12 @@ export default function BookingForm() {
                 )}
               </div>
 
+              {/* Submit Button */}
               <div className="sm:col-span-2">
-                <button type="submit" className="btn-gold w-full">
+                <button
+                  type="submit"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1CAF87] px-6 py-3.5 text-sm font-bold text-white shadow-md transition-all hover:bg-[#159A75] hover:shadow-lg"
+                >
                   <Icon name="whatsapp" className="h-4 w-4" />
                   Send on WhatsApp
                 </button>
@@ -441,9 +470,11 @@ export default function BookingForm() {
                   with WhatsApp when you proceed and press Send.
                 </p>
               </div>
+
             </form>
           </div>
         </Reveal>
+
       </div>
     </section>
   );
