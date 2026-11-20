@@ -4,6 +4,29 @@ import { Icon, Reveal } from "./ui.jsx";
 
 const imagesPath = `${import.meta.env.BASE_URL}images/`;
 
+const additionalConditions = [
+  "Spinal Cord Injury (SCI)",
+  "Sciatica",
+  "Foot Drop",
+  "Bell's Palsy",
+  "Facial Palsy",
+  "Developmental Delay",
+  "Cerebral Palsy",
+  "Down Syndrome",
+  "Spina Bifida",
+  "Erb's Palsy",
+  "Muscular Dystrophy",
+  "Motor Neuron Disease (MND)",
+  "Radiculopathy",
+  "Brachial Plexus Injury",
+  "Stroke (CVA)",
+];
+
+// Existing conditions + new conditions, without duplicates
+const allConditions = [
+  ...new Set([...conditions, ...additionalConditions]),
+];
+
 const points = [
   "Personalized, evidence-based treatment plans",
   "Modern techniques with a compassionate approach",
@@ -15,6 +38,7 @@ export default function About() {
     <section id="about" className="bg-cream py-20 sm:py-28">
       <div className="container-lux grid items-center gap-14 lg:grid-cols-2">
 
+        {/* Clinic Images */}
         <Reveal>
           <div className="relative">
 
@@ -50,18 +74,17 @@ export default function About() {
           </div>
         </Reveal>
 
+        {/* About Content */}
         <Reveal delay={120}>
-          {/* Section Label */}
+
           <p className="eyebrow">
             About Motionwell
           </p>
 
-          {/* Heading */}
           <h2 className="mt-4 font-display text-3xl font-medium leading-snug text-ink sm:text-4xl">
             Dedicated to Healing, Mobility & Long-Term Recovery
           </h2>
 
-          {/* Description */}
           <p className="mt-6 leading-relaxed text-ink/70">
             Motionwell Physiotherapy, Rehabilitation & Multispeciality Clinic is
             committed to delivering personalized, evidence-based care focused on
@@ -92,16 +115,17 @@ export default function About() {
             </p>
 
             <div className="flex flex-wrap gap-2.5">
-              {conditions.map((c) => (
+              {allConditions.map((condition) => (
                 <span
-                  key={c}
+                  key={condition}
                   className="rounded-full border border-sand bg-white px-4 py-2 text-xs font-semibold text-ink/70 shadow-sm transition-all hover:border-[#1CAF87] hover:text-[#1CAF87]"
                 >
-                  {c}
+                  {condition}
                 </span>
               ))}
             </div>
           </div>
+
         </Reveal>
 
       </div>

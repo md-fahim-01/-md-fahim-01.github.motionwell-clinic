@@ -1,4 +1,3 @@
-
 import { clinic } from "../data/clinic.js";
 import { Icon, Reveal } from "./ui.jsx";
 
@@ -165,3 +164,4 @@ export default function Hero() {
     </section>
   );
 }
+

@@ -83,8 +83,7 @@
 
 .doctors-section {
   width: 100%;
-  padding: 90px 0 85px;
-  overflow: hidden;
+  padding: 85px 0;
   background: #1caf87;
   color: #ffffff;
 }
@@ -96,18 +95,20 @@
   padding: 0 28px;
 }
 
-/* Heading */
+/* =================================
+   DOCTORS HEADING
+================================= */
 
 .doctors-heading {
   max-width: 760px;
-  margin: 0 auto 65px;
+  margin: 0 auto 55px;
   text-align: center;
 }
 
 .doctors-eyebrow {
   display: inline-block;
   margin-bottom: 16px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -128,77 +129,58 @@
 .doctors-heading p {
   max-width: 650px;
   margin: 20px auto 0;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 16px;
   line-height: 1.8;
 }
 
 /* =================================
-   HORIZONTAL DOCTOR SLIDER
+   DOCTORS GRID
 ================================= */
 
-.doctor-marquee {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px 0 24px;
-
-  /* Fade edges */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 7%,
-    black 93%,
-    transparent 100%
-  );
-
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 7%,
-    black 93%,
-    transparent 100%
-  );
-}
-
-.doctor-marquee-track {
-  display: flex;
-  width: max-content;
-  align-items: flex-start;
-  animation: motionwellDoctors 35s linear infinite;
-  will-change: transform;
-}
-
-.doctor-marquee-group {
-  display: flex;
-  flex: 0 0 auto;
-  align-items: flex-start;
-  gap: 32px;
-  padding-right: 32px;
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
 }
 
 /* =================================
-   DOCTOR PROFILE
+   INDIVIDUAL DOCTOR CARD
 ================================= */
 
-.doctor-profile {
-  flex: 0 0 240px;
-  width: 240px;
-  padding: 5px 10px;
+.doctor-card {
+  min-width: 0;
+  padding: 25px 16px;
+  border: 1px solid rgba(12, 43, 39, 0.06);
+  border-radius: 22px;
+  background: #F7F4EC;
+  color: #0c2b27;
   text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.09);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* Circular image */
+.doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
+}
+
+/* =================================
+   DOCTOR IMAGE
+================================= */
 
 .doctor-avatar {
-  width: 190px;
-  height: 190px;
-  margin: 0 auto 26px;
+  width: 155px;
+  height: 155px;
+  margin: 0 auto 20px;
   overflow: hidden;
-  border: 7px solid #ffffff;
+  border: 5px solid #e8faf4;
   border-radius: 50%;
   background: #e9f3ef;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 5px 18px rgba(12, 43, 39, 0.12);
 }
 
 .doctor-avatar img {
@@ -210,50 +192,69 @@
   object-position: center;
 }
 
-/* Doctor details */
+/* Dr. Zikra Perween */
 
-.doctor-profile h3 {
-  margin: 0 0 12px;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.4;
-  overflow-wrap: break-word;
+.doctor-card:nth-child(1) .doctor-avatar img {
+  object-position: center 20%;
 }
+
+/* Dr. Abdullah Tayyab */
+
+.doctor-card:nth-child(2) .doctor-avatar img {
+  object-position: center 40%;
+}
+
+/* =================================
+   DOCTOR NAME
+================================= */
+
+.doctor-card-content h3 {
+  margin: 0 0 12px;
+  color: #0c2b27;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* =================================
+   QUALIFICATIONS
+================================= */
 
 .doctor-qualification {
-  margin-bottom: 10px;
-  color: #e7fff4;
+  margin-bottom: 12px;
+  color: #128765;
   font-size: 12px;
-  font-weight: 700;
-  line-height: 1.6;
+  font-weight: 800;
+  line-height: 1.7;
 }
+
+/* =================================
+   SPECIALIZATION
+================================= */
 
 .doctor-title {
-  margin-bottom: 6px;
-  color: #ffffff;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.doctor-experience {
-  color: rgba(255,255,255,0.85);
+  margin-bottom: 12px;
+  color: #0c2b27;
   font-size: 13px;
+  font-weight: 700;
   line-height: 1.6;
 }
 
 /* =================================
-   CONTINUOUS ANIMATION
+   EXPERIENCE AND HOSPITAL DETAILS
 ================================= */
 
-@keyframes motionwellDoctors {
-  from {
-    transform: translateX(0);
-  }
+.doctor-experience {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
 
-  to {
-    transform: translateX(-50%);
-  }
+.doctor-experience p + p {
+  margin-top: 5px;
 }
 
 /* =================================
@@ -287,65 +288,143 @@
 }
 
 /* =================================
+   TABLET RESPONSIVE
+================================= */
+
+@media (max-width: 1024px) {
+  .doctors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .doctor-card {
+    padding: 25px 20px;
+  }
+
+  .doctor-avatar {
+    width: 145px;
+    height: 145px;
+  }
+}
+
+/* =================================
    MOBILE RESPONSIVE
 ================================= */
 
 @media (max-width: 640px) {
   .doctors-section {
-    padding: 65px 0;
+    padding: 60px 0;
   }
 
   .doctors-container {
-    padding: 0 18px;
+    padding: 0 14px;
   }
 
   .doctors-heading {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
+  }
+
+  .doctors-heading h2 {
+    font-size: 34px;
   }
 
   .doctors-heading p {
     font-size: 14px;
+    line-height: 1.7;
   }
 
-  .doctor-profile {
-    flex-basis: 220px;
-    width: 220px;
+  .doctors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
-  .doctor-marquee-group {
-    gap: 20px;
-    padding-right: 20px;
+  .doctor-card {
+    padding: 17px 9px;
+    border-radius: 17px;
   }
 
   .doctor-avatar {
-    width: 160px;
-    height: 160px;
-    border-width: 6px;
+    width: clamp(95px, 29vw, 125px);
+    height: clamp(95px, 29vw, 125px);
+    margin-bottom: 14px;
+    border-width: 4px;
   }
 
-  .doctor-profile h3 {
-    font-size: 18px;
+  .doctor-card-content h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
   }
 
-  .doctor-marquee-track {
-    animation-duration: 28s;
+  .doctor-qualification {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-bottom: 8px;
   }
 
-  .doctor-marquee {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 5%,
-      black 95%,
-      transparent
-    );
-
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 5%,
-      black 95%,
-      transparent
-    );
+  .doctor-title {
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 8px;
   }
+
+  .doctor-experience {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .doctors-footer {
+    margin-top: 30px;
+  }
+
+  .doctors-button {
+    padding: 13px 22px;
+    font-size: 12px;
+  }
+}
+
+/* =================================
+   VERY SMALL MOBILE SCREENS
+================================= */
+
+@media (max-width: 360px) {
+  .doctors-grid {
+    gap: 9px;
+  }
+
+  .doctor-card {
+    padding: 14px 7px;
+  }
+
+  .doctor-card-content h3 {
+    font-size: 13px;
+  }
+
+  .doctor-avatar {
+    width: 95px;
+    height: 95px;
+  }
+}
+
+/* =================================
+   REDUCED MOTION ACCESSIBILITY
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .doctor-card,
+  .doctors-button {
+    transition: none;
+  }
+  
+
+
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { clinic } from "../data/clinic.js";
 import { Icon } from "./ui.jsx";
 
-const logoSrc = `${import.meta.env.BASE_URL}images/motion_wll_logo.png`;
+const logoSrc = `${import.meta.env.BASE_URL}images/Motionwell%20Physiotherapy%20Clinic%20Logo%20(1).png`;
 
 const links = [
   { href: "#home", label: "Home" },
@@ -22,6 +22,8 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
 
+    onScroll();
+
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", onScroll);
@@ -35,68 +37,75 @@ export default function Navbar() {
           : "bg-gradient-to-b from-[#1CAF87]/95 to-[#1CAF87]/80"
       }`}
     >
-      <div className="container-lux flex h-20 items-center justify-between sm:h-24">
+      <div className="container-lux flex h-20 items-center justify-between gap-4 sm:h-24">
 
-        {/* Clinic Logo */}
+        {/* Clinic Logo and Branding */}
         <a
           href="#home"
-          className="flex items-center gap-3"
+          className="flex min-w-0 flex-shrink-0 items-center gap-3"
           aria-label="Motionwell home"
+          onClick={() => setOpen(false)}
         >
           <img
             src={logoSrc}
             alt="Motionwell Clinic Logo"
-            className="h-14 w-14 rounded-full bg-white p-0.5 object-cover ring-2 ring-white shadow-lg sm:h-16 sm:w-16"
+            className="h-14 w-14 flex-shrink-0 rounded-full bg-white p-0.5 object-cover ring-2 ring-white shadow-lg sm:h-16 sm:w-16"
             loading="eager"
             decoding="async"
           />
 
-          <span className="leading-tight">
-            <span className="block font-display text-lg font-semibold tracking-wide text-white sm:text-xl">
-              Motionwell
+          <span className="min-w-0 leading-tight">
+
+            {/* Two Colour Motionwell Name */}
+            <span className="block whitespace-nowrap font-serif text-xl font-semibold tracking-normal sm:text-2xl">
+              <span className="text-[#0C2B27]">MOTION</span>
+              <span className="text-white">WELL</span>
             </span>
 
-            <span className="block text-[9px] font-semibold uppercase tracking-[0.28em] text-white/85">
+            <span className="block whitespace-nowrap text-[8px] font-semibold uppercase tracking-[0.19em] text-white/90 sm:text-[9px]">
               Physiotherapy & Rehab
             </span>
+
           </span>
         </a>
 
         {/* Desktop Navigation */}
         <nav
-          className="hidden items-center gap-7 lg:flex"
+          className="hidden min-w-0 items-center gap-4 xl:flex 2xl:gap-6"
           aria-label="Primary"
         >
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[13px] font-semibold uppercase tracking-widest text-white/90 transition-colors hover:text-[#F7F4EC]"
+              className="whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.07em] text-white/95 transition-colors hover:text-[#F7F4EC] 2xl:text-[12px]"
             >
               {l.label}
             </a>
           ))}
 
+          {/* Phone Number */}
           <a
             href={`tel:${clinic.phoneDial}`}
-            className="hidden items-center gap-2 text-[13px] font-semibold tracking-wide text-white xl:flex"
+            className="hidden items-center gap-2 whitespace-nowrap text-[12px] font-semibold text-white 2xl:flex"
           >
-            <Icon name="phone" className="h-4 w-4 text-white" />
+            <Icon name="phone" className="h-4 w-4" />
             {clinic.phone}
           </a>
 
+          {/* Book Button */}
           <a
             href="#book"
-            className="rounded-full bg-white px-6 py-2.5 text-sm font-bold text-[#0C2B27] shadow-md transition-all hover:bg-[#F7F4EC] hover:shadow-lg"
+            className="flex-shrink-0 whitespace-nowrap rounded-full bg-white px-5 py-3 text-sm font-bold text-[#0C2B27] shadow-md transition-all hover:bg-[#F7F4EC] hover:shadow-lg"
           >
             Book Now
           </a>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile / Tablet Menu Button */}
         <button
           type="button"
-          className="rounded-lg p-2 text-white transition-colors hover:bg-white/15 lg:hidden"
+          className="flex-shrink-0 rounded-lg p-2 text-white transition-colors hover:bg-white/15 xl:hidden"
           onClick={() => setOpen((previous) => !previous)}
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
@@ -120,11 +129,11 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile / Tablet Navigation */}
       {open && (
         <nav
           id="mobile-navigation"
-          className="border-t border-white/20 bg-[#1CAF87] px-6 pb-6 pt-2 shadow-lg lg:hidden"
+          className="max-h-[calc(100svh-5rem)] overflow-y-auto border-t border-white/20 bg-[#1CAF87] px-6 pb-6 pt-2 shadow-lg sm:max-h-[calc(100svh-6rem)] xl:hidden"
           aria-label="Mobile"
         >
           {links.map((l) => (
@@ -137,6 +146,15 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+
+          <a
+            href={`tel:${clinic.phoneDial}`}
+            onClick={() => setOpen(false)}
+            className="mt-4 flex items-center gap-2 text-sm font-semibold text-white"
+          >
+            <Icon name="phone" className="h-4 w-4" />
+            {clinic.phone}
+          </a>
 
           <a
             href="#book"
