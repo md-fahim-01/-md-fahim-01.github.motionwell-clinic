@@ -3,7 +3,7 @@ const doctors = [
   {
     id: 1,
     name: "Dr. Zikra Perween, PT",
-    qualification: ["BPT, MPT"],
+    qualification: ["BPT, MPT, M.I.A.P., IAP"],
     title: "Physiotherapist",
     details: [
       "5 Years Experience",
@@ -27,7 +27,7 @@ const doctors = [
   {
     id: 3,
     name: "Dr. Afgana Praveen (PT)",
-    qualification: ["BPT, MPT, M.I.A.P, IAP"],
+    qualification: ["BPT, MPT, M.I.A.P., IAP"],
     title: "Physiotherapist",
     details: [
       "6 Years Experience",
