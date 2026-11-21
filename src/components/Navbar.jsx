@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { clinic } from "../data/clinic.js";
 import { Icon } from "./ui.jsx";
 
-const logoSrc = `${import.meta.env.BASE_URL}images/Motionwell%20Physiotherapy%20Clinic%20Logo%20(1).png`;
+const logoSrc = `${import.meta.env.BASE_URL}images/motion_wll_logo.png`;
 
 const links = [
   { href: "#home", label: "Home" },

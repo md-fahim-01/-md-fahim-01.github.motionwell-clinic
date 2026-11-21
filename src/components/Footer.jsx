@@ -2,7 +2,7 @@
 import { clinic } from "../data/clinic.js";
 import { Icon } from "./ui.jsx";
 
-const logoSrc = `${import.meta.env.BASE_URL}images/Motionwell%20Physiotherapy%20Clinic%20Logo%20(1).png`;
+const logoSrc = `${import.meta.env.BASE_URL}images/motion_wll_logo.png`;
 
 export default function Footer() {
   return (
@@ -14,16 +14,11 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <img
               src={logoSrc}
-              alt="Motionwell Clinic Logo"
-              className="h-14 w-14 rounded-full border-2 border-white bg-white p-0.5 object-cover shadow-lg"
+              alt="Motionwell Physiotherapy Clinic Logo"
+              className="h-20 w-20 flex-shrink-0 rounded-full border-2 border-white bg-white p-0.5 object-contain shadow-lg"
               loading="lazy"
               decoding="async"
             />
-
-            <span className="font-serif text-xl font-semibold">
-              <span className="text-[#0C2B27]">MOTION</span>
-              <span className="text-white">WELL</span>
-            </span>
           </div>
 
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/90">
